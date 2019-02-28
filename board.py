@@ -123,6 +123,10 @@ class Board():
         return self.feedback
 
     def print_historic(self):
+        """
+        Prints the historic of the table
+        :return: No return
+        """
         print("GAME HISTORIC:\n")
         for i, e in enumerate(self.board):
             if self.board[i] == None:

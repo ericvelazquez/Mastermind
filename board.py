@@ -122,6 +122,15 @@ class Board():
         self.feedback[positon] = feedback
         return self.feedback
 
+    def print_historic(self):
+        print("GAME HISTORIC:\n")
+        for i, e in enumerate(self.board):
+            if self.board[i] == None:
+                break
+            print("--> pattern %d: %s - feedback: CLOSE -> %d, EXACT -> %d." % (i + 1, self.board[i],
+                                                                                self.feedback[i][0],
+                                                                                self.feedback[i][1]))
+        print("\n")
 
 if __name__ == "__main__":
     import doctest

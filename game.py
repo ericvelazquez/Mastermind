@@ -29,7 +29,7 @@ class Game():
                 close, exact = self.board.check_guess(counted_attempt,attempt)
                 if exact == self.board.balls_per_row:
                     break
-                print("Attempts: %d . Feedback: CLOSE -> %d EXACT %d .\n" %(self.board.attempts, close,exact))
+                print("Attempts: %d . Feedback: CLOSE -> %d EXACT -> %d .\n" %(self.board.attempts, close,exact))
             else:
                 print("This guess is not valid. The colors available are %s . This attempt does not count" % (
                     self.colors))
@@ -43,6 +43,8 @@ class Game():
         else:
             print("Game OVER!! The solution was %s" % (self.board.solution))
 
+        self.board.print_historic()
+
 
 
 
@@ -51,8 +53,6 @@ class Game():
 if __name__ == "__main__":
     game = Game()
     game.start_game_guess()
-    print(game.board.get_board())
-    print(game.board.get_feedback())
 
 
 

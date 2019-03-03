@@ -4,10 +4,11 @@
 class Board():
     """
     This class will simulate the Matsermind game board
+    This is the actual REST API of the game.
     """
 
-    def __init__(self,columns=4,attempts=13):
-        self.colors = ["red", "green", "blue", "yellow", "orange", "pink"]
+    def __init__(self,columns=4,attempts=13,colors=None):
+        self.colors = colors
         self.balls_per_row = columns
         self.rows = attempts
         self.attempts = attempts
@@ -135,6 +136,15 @@ class Board():
                                                                                 self.feedback[i][0],
                                                                                 self.feedback[i][1]))
         print("\n")
+
+
+    def print_hint(self):
+        """
+        Prints the first color of the solution.
+        :return:  No return
+        """
+        hint_color = self.colors[self.solution[0]]
+        print("HINT: The color %s is in the solution.\n" % (hint_color))
 
 if __name__ == "__main__":
     import doctest
